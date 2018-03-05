@@ -13,18 +13,19 @@ function Word(currentWord) {
   this.displayWord = function() {
     var output = "";
     for (var i = 0; i < this.currentLetters.length; i++) {
-      output +=  this.currentLetters[i].displayChar() + " ";
+      output += " " + " " + this.currentLetters[i].displayChar() + " ";
     }
     console.log(output);
+    return output;
   }
 
   this.checkWord = function (letterGuess) {
     for (var i = 0; i < this.currentLetters.length; i++){
       this.currentLetters[i].checkChar(letterGuess);
     
-      console.log(this.currentLetters[i].checkChar);
-      console.log(letterGuess);
-      console.log(i);
+      // console.log(this.currentLetters[i].checkChar);
+      // console.log(letterGuess);
+      // console.log(i);
     }
   }
 }

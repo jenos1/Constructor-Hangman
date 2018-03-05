@@ -1,31 +1,35 @@
 var Word = require("./Word.js");
-// var Letter = require("./Letter.js");
+var Letter = require("./Letter.js");
 var inquirer = require("inquirer");
 var wordList =["blues", "folk", "rock", "bluegrass", "jazz", "reggae", "country", "gospel", "soul"];
 var randomWord = wordList[Math.floor(Math.random()* wordList.length)];
 console.log(randomWord);
 var count=0;
+var currWord = new Word(randomWord);
+currWord.generateWord();
 
 var enterLetter = function() {
-  var currWord = new Word(randomWord);
-  console.log(currWord);  
-  if (count < 12) {
-    console.log("Keep guessing genres of music.")
+  //&& currentLetters.length != randomWord.length
+  // console.log(currentLetters.length);
+  // console.log(randomWord.length);
+  if (count < 12 ) {
+    console.log("\n");
   inquirer.prompt([
     {
       type: "input",
       name: "letter",
-      message: "Please enter a letter."
+      message: "You are guessing genres of music. Please enter a letter."
     }
   ]).then(function(answers) {
-  // console.log(checkWord(answers.letter));
-  console.log(answers.letter);
     count++;
-    enterLetter();
+    currWord.checkWord(answers.letter);
+    currWord.displayWord(); 
+  //  console.log(generatedWord);
+   
+    enterLetter();   
 
-    currWord.generateWord();
-    currWord.displayWord(answers.letter);
   });
-  }
+  } 
+
 }
   enterLetter();

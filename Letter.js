@@ -9,21 +9,20 @@ function Letter(character){
 // method to return letter guessed
 Letter.prototype.displayChar = function() {
   if (this.correctGuess === true) {
-    console.log("Good guess, keep going!");
+    console.log("\n", "\x1b[31m", "Good guess, keep going!", "\x1b[0m", "\n");
     return this.character;
   } else {
-    console.log("Keep guessing.");
     return "_";
-  }
+  } 
  }
 // method to check letter guessed.
  Letter.prototype.checkChar = function(inputChar) {
   if(this.character.toLowerCase() === inputChar.toLowerCase()) {
     this.correctGuess = true;
-  }
+  } 
  }
 
-// module.exports = Letter;
+module.exports = Letter;
 // var test = new Letter("K");
 // console.log(test);
 // test.checkChar("j");

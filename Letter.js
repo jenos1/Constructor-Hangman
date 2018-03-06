@@ -23,8 +23,3 @@ Letter.prototype.displayChar = function() {
  }
 
 module.exports = Letter;
-// var test = new Letter("K");
-// console.log(test);
-// test.checkChar("j");
-// var output = test.displayChar();
-// console.log(output);

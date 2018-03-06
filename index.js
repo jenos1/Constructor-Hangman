@@ -9,27 +9,28 @@ var currWord = new Word(randomWord);
 currWord.generateWord();
 
 var enterLetter = function() {
+
   //&& currentLetters.length != randomWord.length
-  // console.log(currentLetters.length);
   // console.log(randomWord.length);
-  if (count < 12 ) {
+  if (count < 12) {
     console.log("\n");
-  inquirer.prompt([
+    // console.log(count);
+    inquirer.prompt([
     {
       type: "input",
       name: "letter",
       message: "You are guessing genres of music. Please enter a letter."
     }
-  ]).then(function(answers) {
-    count++;
-    currWord.checkWord(answers.letter);
-    currWord.displayWord(); 
-  //  console.log(generatedWord);
-   
-    enterLetter();   
+    ]).then(function(answers) {
+      
+      currWord.checkWord(answers.letter);
+      currWord.displayWord(); 
+      currWord.checkLetters();
+    // currWord.generatedWord();
+      count++;
+      enterLetter();   
 
-  });
+    });
   } 
-
 }
   enterLetter();

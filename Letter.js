@@ -9,7 +9,6 @@ function Letter(character){
 // method to return letter guessed
 Letter.prototype.displayChar = function() {
   if (this.correctGuess === true) {
-    console.log("\n", "\x1b[31m", "Good guess, keep going!", "\x1b[0m", "\n");
     return this.character;
   } else {
     return "_";
@@ -19,6 +18,7 @@ Letter.prototype.displayChar = function() {
  Letter.prototype.checkChar = function(inputChar) {
   if(this.character.toLowerCase() === inputChar.toLowerCase()) {
     this.correctGuess = true;
+    console.log("\n", "\x1b[31m", "Good guess, keep going!", "\x1b[0m", "\n");
   } 
  }
 
